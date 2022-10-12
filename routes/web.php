@@ -15,7 +15,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('login');
 });
 
