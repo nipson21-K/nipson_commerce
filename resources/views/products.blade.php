@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <!--SLIDER IMG-->
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -14,9 +16,11 @@
         <div class="carousel-inner">
             @foreach($product as $items)
             <div class="item {{$items['id']==1 ? 'active' : ''}}">
-                <img src=" {{$items['gallery']}}" alt="Los Angeles">
-                <h1>{{$items['name']}}</h1>
-                <p>{{$items['description']}}</p>
+                <a href="detail/{{$items['id']}}">
+                    <img src=" {{$items['gallery']}}" alt="Los Angeles">
+                    <h1>{{$items['name']}}</h1>
+                    <p>{{$items['description']}}</p>
+                </a>
             </div>
             @endforeach
 
@@ -32,5 +36,19 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+    <!--TRENDING PRODUCTS-->
+    @foreach($product as $items)
+    <div class="card" style="width: 18rem; float:left; margin:30px; background:grey;">
+        <a href="detail/{{$items['id']}}">
+            <img class="card-img-top" src="{{$items['gallery']}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{$items['name']}}</h5>
+                <p class="card-text"> {{$items['description']}}</p>
+
+            </div>
+        </a>
+    </div>
+    @endforeach
 </div>
 @endsection
