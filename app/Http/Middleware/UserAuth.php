@@ -19,7 +19,7 @@ class UserAuth
         //to stop user from going to login page again if they are already logged in
         if($request->path()=='login' && $request->session()->has('user'))
         {
-            return redirect('productcontroller');
+            return redirect('/');
         }
         return $next($request);
     }

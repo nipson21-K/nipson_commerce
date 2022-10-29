@@ -19,7 +19,8 @@ class UserController extends Controller
        else
        {
         $req->session()->put('user', $user);
-        return redirect('productcontroller');
+        return redirect('/');
        }
     }
+    
 }

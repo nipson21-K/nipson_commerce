@@ -15,12 +15,19 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/logout', function()
+{
+    Session::forget('user');
+    return redirect('login');
+});
+
 Route::post('/logincontroller', [UserController::class,'login']);
-Route::get('/productcontroller', [ProductController::class,'productpage']);
+Route::get('/', [ProductController::class,'productpage']);
 Route::get('detail/{id}',[ProductController::class, 'detailPage']);
 Route::get("search", [ProductController::class, 'search']);
 Route::post("add_to_cart", [ProductController::class, 'addToCart']);
+Route::get("cartList", [ProductController::class, 'cartList']);
