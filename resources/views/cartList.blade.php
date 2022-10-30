@@ -15,7 +15,8 @@
             </div>
         </a>
 
-        <button>Remove</button>
+        <a class="bg-light" href="removeCart/{{$items->cartId}}">Remove</a>
+        <a class="bg-light" href="orderNow">Order now</a>
     </div>
     @endforeach
 
